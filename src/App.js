@@ -1,13 +1,11 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom"; // Updated from Switch to Routes
+import { Routes, Route, Link, Router } from "react-router-dom"; // Updated from Switch to Routes
 import { Layout, Typography, Space } from "antd";
 
 import {
   Navbar,
-  Exchanges,
   Homepage,
   Cryptocurrencies,
-  News,
   CryptoDetails,
 } from "./Components";
 import "./App.css";
@@ -23,16 +21,13 @@ const App = () => {
           <div className="routes">
             <Routes>
               {" "}
-              {/* Updated from Switch to Routes */}
-              <Route exact path="/" element={<Homepage />} />
-              <Route exact path="/exchanges" element={<Exchanges />} />
+              <Route exact path="/" element={<Homepage />} />{" "}
               <Route
                 exact
-                path="/crypto-currencies"
+                path="/cryptocurrencies"
                 element={<Cryptocurrencies />}
-              />
-              <Route exact path="/crypto/:coinId" element={<CryptoDetails />} />
-              <Route exact path="/news" element={<News />} />
+              />{" "}
+              <Route exact path={`/crypto/:coinId`} element={<CryptoDetails />} />{" "}
             </Routes>
           </div>
         </Layout>
@@ -46,8 +41,8 @@ const App = () => {
           </Typography.Title>
           <Space>
             <Link to="/">Home</Link>
-            <Link to="/exchanges">Exchanges</Link>
-            <Link to="/news">News</Link>
+            <Link to="/about-me">About me</Link>
+            <Link to="/cryptocurrencies">Cryptocurrency</Link>
           </Space>
         </div>
       </div>
